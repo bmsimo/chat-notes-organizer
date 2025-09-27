@@ -22,13 +22,13 @@ The plugin uses an LLM (configurable provider and model) to:
 # How It Works
 
 1. Retrieve the active file
-   - `this.app.workspace.getActiveFile()` is used to get the current note. If there is no active note, a Notice is shown and the operation stops.
+   - `app.workspace.getActiveFile()` is used to get the current note. If there is no active note, a Notice is shown and the operation stops.
 
 2. Show a progress modal
    - A small progress modal opens showing a spinner and the text “Organizing note...”.
 
 3. Read note contents
-   - The plugin reads the file contents via `this.app.vault.read(activeFile)`.
+   - The plugin reads the file contents via `app.vault.read(activeFile)`.
 
 4. Build the prompts
    - A carefully crafted `systemPrompt` sets expectations for the LLM:
@@ -59,7 +59,7 @@ The plugin uses an LLM (configurable provider and model) to:
 
 8. Sanitize and write the result
    - Any `<think>...</think>` blocks are removed to avoid chain-of-thought content.
-   - The organized Markdown fully replaces the content of the currently active note via `this.app.vault.modify(activeFile, organizedContent)`.
+   - The organized Markdown fully replaces the content of the currently active note via `app.vault.modify(activeFile, organizedContent)`.
    - A success Notice appears: “Note organized successfully 🚀”.
 
 9. Close the modal
