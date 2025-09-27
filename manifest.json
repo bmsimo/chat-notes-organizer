@@ -1,0 +1,10 @@
+{
+  "id": "chat-notes-organizer-plugin",
+  "name": "Chat Notes Organizer",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Organize and refactor notes copied from ChatGPT into clean Markdown.",
+  "author": "Mohamed Bermaki",
+  "authorUrl": "https://bermaki.com",
+  "isDesktopOnly": false
+}
