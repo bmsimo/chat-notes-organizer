@@ -25,8 +25,10 @@ export class OrganizerSettingTab extends PluginSettingTab {
 			if (!customUrlSetting) {
 				return;
 			}
-			customUrlSetting.settingEl.style.display =
-				this.plugin.settings.provider === "custom" ? "" : "none";
+			customUrlSetting.settingEl.classList.toggle(
+				"d-none",
+				this.plugin.settings.provider !== "custom"
+			);
 		};
 
 		const updateApiKeyVisibility = () => {
@@ -36,7 +38,7 @@ export class OrganizerSettingTab extends PluginSettingTab {
 			const show =
 				this.plugin.settings.provider === "openai" ||
 				this.plugin.settings.provider === "openrouter";
-			apiKeySetting.settingEl.style.display = show ? "" : "none";
+			apiKeySetting.settingEl.classList.toggle("d-none", !show);
 		};
 
 		new Setting(containerEl)
